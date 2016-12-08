@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ArtikelDialog()
+comment1.params=
+comment1.target=void\ start()
+comment2.params=
+comment2.target=int\ leser()
+comment3.params=funktion
+comment3.target=void\ ausfuehrer(int)
+comment3.text=\r\n\ Method\ ausfuehrer\r\n\ Schaut\ welche\ nummer\ der\ Benuzer\ eingibt\r\n\ und\ wenn\ diese\ nummer\ einner\ funktion\ entspricht\r\n\ f\u00FChrt\ er\ sie\ aus\r\n\ \r\n\r\n\ @param\ funktion\ ist\ die\ nummer\ die\ der\ Benutzer\ eingibt.\r\n
+comment4.params=
+comment4.target=Artikel\ anlegenMit()
+comment4.text=\r\n\ Method\ anlegen\r\n\ man\ fragt\ Die\ Artikelnummer,\ Artikelbezeichnung\ \r\n\ und\ Artikelbestand\r\n\r\n\ @return\ Kreiert\ ein\ neuer\ Artikel\ mit\ bestand\r\n
+comment5.params=
+comment5.target=Artikel\ anlegenOhne()
+comment5.text=\r\n\ Method\ anlegenOhne\r\n\ Das\ gleiche\ wie\ anlegenMit\ aber\ nur\ ohne\ bestand\r\n\r\n\ @return\ Kreiert\ ein\ neuer\ Artikel\ ohne\ bestand\r\n
+comment6.params=
+comment6.target=int\ mengeLesen()
+comment6.text=\r\n\ Method\ mengeLesen\r\n\r\n\ @return\ gibt\ die\ menge\ wieder\r\n
+comment7.params=args
+comment7.target=void\ main(java.lang.String[])
+numComments=8
