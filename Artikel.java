@@ -2,7 +2,7 @@
 /**
  * Write a description of class Artikel here.
  * 
- * @author Nico Gruschke pascal
+ * @author Nico Gruschke
  * @version 1.5
  */
 public class Artikel
