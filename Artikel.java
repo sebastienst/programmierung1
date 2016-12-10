@@ -19,6 +19,7 @@ public class Artikel
    private static final String MSG_BEZEICHNUNG = "Bezeichnung darf nicht leer sein";
    private static final String MSG_BESTAND     = "Bestand muss positiv sein";
    private static final String MSG_UEBERZOGEN  = "Artikel darf nicht ueberzigen werden";
+   private static final String MSG_PREIS       = "Ein Preis kann nicht negativ sein";
    
    /**
     * Artikel Constructor
@@ -31,15 +32,15 @@ public class Artikel
    {
        ueberpruefen(artikelNummer <= MAX_artikelNummer && artikelNummer >= MIN_artikelNummer,
                     MSG_artikelNummer);
-       ueberpruefen(bestand >= 0, MSG_BESTAND);
+       ueberpruefen(bestand >= 0 , MSG_BESTAND);
        this.artikelNummer = artikelNummer;
        setBezeichnung(bezeichnung);
        this.bestand = bestand;
-       this.preis = preis;
+       setPreis(preis);
    }
    public Artikel(int artikelNummer, String bezeichnung, double preis)
    {
-       this(artikelNummer , bezeichnung , 0, preis);
+       this(artikelNummer , bezeichnung , 0 , preis);
    }
    
    /**
@@ -67,7 +68,8 @@ public class Artikel
    
    public String toString()
    {
-       return "Artikel: " + artikelNummer +", Bezeichnung: " + bezeichnung +", Bestand: " + bestand;
+       return "Artikel: " + artikelNummer +", Bezeichnung: " + bezeichnung +", Bestand: " + bestand
+       + ", Preis: " + preis + " euro";
    }
    
    /**
@@ -99,6 +101,16 @@ public class Artikel
    {
        return bestand;
    }
+   
+   public double getPreis()
+   {
+       return preis;
+   }
+   
+   public void setPreis(double preis){
+       ueberpruefen(preis > 0.0, MSG_PREIS);
+       this.preis = preis;
+    }
    
    public void setBezeichnung(String bezeichnung) {
        ueberpruefen(bezeichnung != null && bezeichnung.trim().length() > 0,

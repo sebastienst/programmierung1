@@ -29,7 +29,7 @@ public class LagerTest
     @Before
     public void setUp()
     {
-        lager =new Lager(10);
+        lager =new Lager("nico",10);
     }
 
     /**
@@ -45,12 +45,12 @@ public class LagerTest
     @Test(expected = RuntimeException.class)
     public void testKonstructorIntNull(){
         Lager lager2;
-        lager2 = new Lager(0);
+        lager2 = new Lager("lol",0);
     }
     
     @Test(expected = RuntimeException.class)
     public void testKonstructorIntNegative(){
         Lager lager2;
-        lager2 = new Lager(-100);
+        lager2 = new Lager("nico",-100);
     }
 }

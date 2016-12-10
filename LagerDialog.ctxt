@@ -1,8 +1,20 @@
 #BlueJ class context
 comment0.params=
 comment0.target=LagerDialog()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ LagerDialog\r\n
-comment1.params=y
-comment1.target=int\ sampleMethod(int)
-comment1.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
-numComments=2
+comment1.params=
+comment1.target=void\ start()
+comment2.params=
+comment2.target=int\ leser()
+comment3.params=funktion
+comment3.target=void\ ausfuehrer(int)
+comment4.params=
+comment4.target=int\ einlesenArtikelNr()
+comment5.params=
+comment5.target=java.lang.String\ einlesenBezeichnung()
+comment6.params=
+comment6.target=double\ einlesenPreis()
+comment7.params=
+comment7.target=int\ einlesenMenge()
+comment8.params=args
+comment8.target=void\ main(java.lang.String[])
+numComments=9

@@ -14,6 +14,15 @@ import org.junit.Test;
 public class ArtikelTest
 {
     private Artikel artikel1;
+    private Artikel artikel2;
+    private Artikel artikel3;
+    
+    private final static String MSG_AUSGABE     =
+    "Ausgabe ist nicht richtig verlaufen";
+    private final static String MSG_BEZEICHNUNG =
+    "Bezeichnung anderung ist nicht richtig verlaufen";
+    private final static String MSG_EINNAHME    =
+    "Einnahme ist nicht richtig verlaufen";
     /**
      * Default constructor for test class ArtikelTest
      */
@@ -29,7 +38,8 @@ public class ArtikelTest
     @Before
     public void setUp()
     {
-        artikel1 = new Artikel(2222, "Mauer", 500);
+        artikel1 = new Artikel(2222, "Mauer", 500, 20);
+        artikel3 = new Artikel(2252, "martini", 500, 20);
     }
 
     /**
@@ -41,32 +51,82 @@ public class ArtikelTest
     public void tearDown()
     {
     }
-    @Test
-    public void testKonstructor(){
-        Artikel artikel2;
-        try{
-            artikel2 = new Artikel(78965, "auto", 0);
-            fail("Nummer nicht 4-stellig");
-        } catch (RuntimeException e){}
-        
-        try{
-            artikel2 = new Artikel(789, "auto", 0);
-            fail("Nummer nicht 4-stellig");
-        } catch (RuntimeException e){}
-        
-        try{
-            artikel2 = new Artikel(789, null, 0);
-            fail("Bezeichnung darf nicht leer sein");
-        } catch (RuntimeException e){}
-        
-        try{
-            artikel2 = new Artikel(789, "", 0);
-            fail("Bezeichnung darf nicht leer sein");
-        } catch (RuntimeException e){}
-        
-        try{
-            artikel2 = new Artikel(789, "auto", -110);
-            fail("Bestand muss positiv sein");
-        } catch (RuntimeException e){}
+    
+    @Test(expected= RuntimeException.class)
+    public void testArtikelnr_Zu_Lang(){
+        artikel2 = new Artikel(78965, "auto", 20, 5);
     }
+    
+    @Test(expected= RuntimeException.class)
+    public void testArtikelnr_Zu_Kurz(){
+        artikel2 = new Artikel(789, "auto", 20, 5);
+    }
+
+    @Test(expected= RuntimeException.class)
+    public void testBezeichnung_null(){
+        artikel1.setBezeichnung(null);
+    }
+    
+    @Test(expected= RuntimeException.class)
+    public void testBezeichnung_nix(){
+        artikel1.setBezeichnung("");
+    }
+    
+    @Test(expected= RuntimeException.class)
+    public void testBezeichnung_lehrzeichen(){
+        artikel1.setBezeichnung("     ");
+    }
+    
+    @Test(expected= RuntimeException.class)
+    public void testPreis_negative(){
+        artikel1.setPreis(-10);
+    }
+    
+    @Test(expected= RuntimeException.class)
+    public void testPreis_gleich_0(){
+        artikel1.setPreis(0);
+    }
+    
+    @Test
+    public void testPreis_gleich_55_cent(){
+        artikel1.setPreis(0.55);
+    }
+    
+    @Test
+    public void testAusgabe(){
+        artikel1.ausgabe(200);
+        assertEquals(MSG_AUSGABE, 
+            300, artikel1.getBestand());
+        
+        artikel3.ausgabe(500);
+        assertEquals(MSG_AUSGABE, 
+            0, artikel3.getBestand());
+    }
+    
+    @Test
+    public void testEinahme(){
+        artikel1.einnahme(300);
+        assertEquals(MSG_EINNAHME, 
+            800, artikel1.getBestand());
+            
+        artikel3.einnahme(500);
+        assertEquals(MSG_EINNAHME, 
+            1000, artikel3.getBestand());
+    }
+    
+    @Test(expected= RuntimeException.class)
+    public void testMenge_negative(){
+        artikel1.ausgabe(-200);
+        artikel1.einnahme(-200);
+    }
+    
+    @Test
+    public void testBezeichnung_andern(){
+        artikel1.setBezeichnung("bauer");
+        assertEquals(MSG_BEZEICHNUNG, 
+              "bauer", artikel1.getArtikelBezeichnung());
+    }
+    
+    
 }
+

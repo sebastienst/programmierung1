@@ -93,6 +93,7 @@ public class ArtikelDialog
         int nummer;
         String bezeichnung;
         int bestand;
+        double preis;
         
         System.out.print("Artikelnummer     : ");
         nummer = input.nextInt();
@@ -101,8 +102,10 @@ public class ArtikelDialog
         bezeichnung = input.nextLine();
         System.out.print("Artikelbestand    : ");
         bestand = input.nextInt();
+        System.out.print("Preis             : ");
+        preis = input.nextDouble();
         
-        return new Artikel(nummer, bezeichnung, bestand);
+        return new Artikel(nummer, bezeichnung, bestand, preis);
     }
     /**
      * Method anlegenOhne
@@ -113,14 +116,17 @@ public class ArtikelDialog
     private Artikel anlegenOhne(){
         int nummer;
         String bezeichnung;
+        double preis;
         
         System.out.print("Artikelnummer     : ");
         nummer = input.nextInt();
         input.nextLine();
         System.out.print("Artikelbezeichnung: ");
         bezeichnung = input.nextLine();
+        System.out.print("Preis             : ");
+        preis = input.nextDouble();
         
-        return new Artikel(nummer, bezeichnung);
+        return new Artikel(nummer, bezeichnung, preis);
     }
     /**
      * Method mengeLesen
